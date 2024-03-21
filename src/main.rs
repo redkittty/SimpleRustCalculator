@@ -1,6 +1,6 @@
 use std::io;
 fn main() {
-    println!("SimpleRustCalculator v2.0");
+    println!("SimpleRustCalculator v2.1");
     println!("Licensed under GNU General Public License v3.0 (GPLv3)");
     println!("Modes = (1) = Addition, (2) = Subtraction, (3) = Multiplication, (4) = Division, (5) = Squared");
     let mut operator = String::new();
@@ -55,4 +55,12 @@ fn main() {
         // Invalid Operator
         println!("Invalid Operator, Please try again");
     }
+    // Exit
+    println!("---------------");
+    println!("Press the ENTER key to exit!");
+    let mut exit = String::new();
+    io::stdin()
+        .read_line(&mut exit)
+        .expect("Closing with Failed to read line Error");
+
 }
