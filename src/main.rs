@@ -1,6 +1,6 @@
 use std::io;
 fn main() {
-    println!("SimpleRustCalculator v3.1");
+    println!("SimpleRustCalculator v3.0");
     println!("Licensed under GNU General Public License v3.0 (GPLv3)");
     println!("Modes = (1) = Addition, (2) = Subtraction, (3) = Multiplication, (4) = Division, (5) = Squared, (6) = Sq Root");
     let mut operator = String::new();
