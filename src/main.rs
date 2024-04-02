@@ -1,15 +1,15 @@
 use std::io;
 fn main() {
-    println!("SimpleRustCalculator v2.1");
+    println!("SimpleRustCalculator v3.1");
     println!("Licensed under GNU General Public License v3.0 (GPLv3)");
-    println!("Modes = (1) = Addition, (2) = Subtraction, (3) = Multiplication, (4) = Division, (5) = Squared");
+    println!("Modes = (1) = Addition, (2) = Subtraction, (3) = Multiplication, (4) = Division, (5) = Squared, (6) = Sq Root");
     let mut operator = String::new();
     // Allows user to input stuff
     io::stdin()
         .read_line(&mut operator)
         .expect("Failed to read line");
     let operator: i8 = operator.trim().parse().expect("Please insert a number");
-    if operator == 1 || operator == 2 || operator == 3 || operator == 4 || operator == 5 {
+    if operator == 1 || operator == 2 || operator == 3 || operator == 4 || operator == 5 || operator == 6 {
         // Valid operator
         println!("-----");
         // First Number
@@ -18,10 +18,17 @@ fn main() {
             .read_line(&mut num1)
             .expect("Failed to read line");
         let num1: f64 = num1.trim().parse().expect("Please insert a number");
-        // Squared
-        if operator == 5 {
-            let sqred = num1 * num1;
-            println!("= {sqred}");
+        if operator == 5 || operator == 6 {
+            // Squared
+            if operator == 5 {
+                let sqred = num1 * num1;
+                println!("= {sqred}");
+            }
+            // Sq Root
+            if operator == 6 {
+                let sqrt = f64::sqrt(num1);
+                println!("= {sqrt}");
+            }
         }
         else {
             // Second Number
@@ -30,7 +37,6 @@ fn main() {
                 .read_line(&mut num2)
                 .expect("Failed to read line");
             let num2: f64 = num2.trim().parse().expect("Please insert a number");
-            // Operations
             // Addition
             if operator == 1 {
                 let sum = num1 + num2;
