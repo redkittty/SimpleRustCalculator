@@ -1,6 +1,6 @@
 use std::io;
 fn main() {
-    println!("SimpleRustCalculator v3.0");
+    println!("SimpleRustCalculator v3.1");
     println!("Licensed under GNU General Public License v3.0 (GPLv3)");
     println!("Modes = (1) = Addition, (2) = Subtraction, (3) = Multiplication, (4) = Division, (5) = Squared, (6) = Sq Root, (7) = Pythagrean Theorum");
     let mut operator = String::new();
@@ -11,7 +11,7 @@ fn main() {
     let operator: i8 = operator.trim().parse().expect("Please insert a number");
     if operator == 1 || operator == 2 || operator == 3 || operator == 4 || operator == 5 || operator == 6 || operator == 7 {
         // Valid operator
-        println!("-----");
+        println!("---------------");
         // First Number
         let mut num1 = String::new();
         io::stdin()
@@ -22,11 +22,13 @@ fn main() {
             // Squared
             if operator == 5 {
                 let sqred = num1 * num1;
+                println!("---------------");
                 println!("= {sqred}");
             }
             // Sq Root
             if operator == 6 {
                 let sqrt = f64::sqrt(num1);
+                println!("---------------");
                 println!("= {sqrt}");
             }
         }
@@ -37,6 +39,7 @@ fn main() {
                 .read_line(&mut num2)
                 .expect("Failed to read line");
             let num2: f64 = num2.trim().parse().expect("Please insert a number");
+            println!("---------------");
             // Addition
             if operator == 1 {
                 let sum = num1 + num2;
@@ -59,13 +62,16 @@ fn main() {
             if operator == 7 {
                 let sq1 = num1 * num1;
                 let sq2 = num2 * num2;
+                println!("---------------");
                 println!("Is there a missing leg?");
                 println!("(1) = yes, (2) = no,");
+                println!("---------------");
                 let mut a = String::new();
                 io::stdin()
                     .read_line(&mut a)
                     .expect("Failed to Read Line");
                 let a: i8 = a.trim().parse().expect("Please insert a number");
+                println!("---------------");
                 if a == 1 || a == 2 {
                     if a == 1 {
                         let pyt1 = sq1 - sq2;
